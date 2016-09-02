@@ -65,7 +65,7 @@ class dellomsa (
   }
 
   file { "${serverxml_path}":
-    content => template('omsa/server.xml.erb'),
+    content => template('dellomsa/server.xml.erb'),
     notify => Service['dsm_om_connsvc'],
     require => Package['srvadmin-all'],
   }
