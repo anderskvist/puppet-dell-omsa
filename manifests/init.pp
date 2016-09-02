@@ -21,9 +21,9 @@
 #
 #  class { dellomsa:
 #    keystore_password => '<RANDOM PASSWORD>',
-#    ssl_certificate => '/etc/ssl/private/omsa.host.tld.crt'
-#    ssl_chain => '/etc/ssl/private/omsa.host.tld.inter'
-#    ssl_private_key => '/etc/ssl/private/omsa.host.tld.key'
+#    ssl_certificate => '/etc/ssl/private/omsa.host.tld.crt',
+#    ssl_chain => '/etc/ssl/private/omsa.host.tld.inter',
+#    ssl_private_key => '/etc/ssl/private/omsa.host.tld.key',
 #  }
 #
 # === Authors
