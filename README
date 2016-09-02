@@ -1,6 +1,6 @@
-omsa
+dellomsa
 
-This is the omsa module.
+This is the Dell Open Manage Server Administrator module.
 
 License
 -------
@@ -13,4 +13,4 @@ Contact
 Support
 -------
 
-Please log tickets and issues at our [Projects site](http://projects.example.com)
+Please log tickets and issues at our [Projects site](https://github.com/anderskvist/puppet-dell-omsa)

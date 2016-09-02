@@ -1,4 +1,4 @@
-name    'dell-omsa'
+name    'dellomsa'
 version '0.1.0'
 source 'UNKNOWN'
 author 'dell'
