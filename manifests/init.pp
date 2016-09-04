@@ -81,7 +81,7 @@ class dellomsa (
     chain       => $ssl_chain,
     private_key => $ssl_private_key,
     password    => $keystore_password,
-    target      => $dellomsa::params::keystore,
+    target      => $keystore_path,
     notify      => Service['dsm_om_connsvc'],
   }
 }
