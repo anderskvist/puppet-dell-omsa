@@ -15,6 +15,8 @@ PUPPET = <<SCRIPT
   puppet module install puppetlabs-java_ks
   ln -s /vagrant /etc/puppet/modules/dellomsa
 
+  echo "root:vagrant"|chpasswd
+
   cd /etc/ssl/private/
   openssl genrsa -out omsa.host.tld.key 2048 2> /dev/null
   openssl req -new -x509 -key omsa.host.tld.key -out omsa.host.tld.crt -days 3650 -subj /CN=omsa.host.tld
