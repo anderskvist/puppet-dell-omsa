@@ -59,6 +59,7 @@ class dellomsa (
   ->
   package { 'srvadmin-all':
     ensure => 'installed',
+    require => Class['apt::update'],
   }
   ->
   class { 'dellomsa::development': }
