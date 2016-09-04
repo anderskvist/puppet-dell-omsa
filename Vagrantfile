@@ -32,6 +32,9 @@ class { dellomsa:
   ssl_private_key => '/etc/ssl/private/omsa.host.tld.key',
 }
 EOF
+
+  # avoid warnings about hiera.yaml is missing
+  touch /etc/puppet/hiera.yaml
   puppet apply /root/dellomsa.pp
   true
 SCRIPT
