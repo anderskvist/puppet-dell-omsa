@@ -39,6 +39,8 @@ class dellomsa (
   $ssl_certificate,
   $ssl_chain,
   $ssl_private_key,
+
+  $development = false,
   
 ) inherits dellomsa::params {
 
@@ -58,6 +60,8 @@ class dellomsa (
   package { 'srvadmin-all':
     ensure => 'installed',
   }
+  ->
+  class { 'dellomsa::development': }
   ->
   service { ['dataeng','dsm_om_connsvc']:
     ensure => 'running',
