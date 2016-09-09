@@ -35,6 +35,8 @@
 # Copyright 2016 Anders Kvist <ak@cego.dk>
 #
 class dellomsa (
+  $omsa_version,
+
   $keystore_password,
   $ssl_certificate,
   $ssl_chain,
@@ -43,6 +45,21 @@ class dellomsa (
   $development = false,
   
 ) inherits dellomsa::params {
+
+  $srvadmin_path = '/opt/dell/srvadmin'
+  case $omsa_version {
+    '7.4': {
+      $srvadmin_lib_path = "${srvadmin_path}/lib/"
+    }
+    '8.3': {
+      $srvadmin_lib_path = "${srvadmin_path}/lib64/"
+    }
+    default: {
+      fail ("Dell OMSA version ${omsa_version} not supported - patches welcome! :)")
+    }
+  }
+  $keystore_path = "${srvadmin_lib_path}/openmanage/apache-tomcat/conf/keystore.db"
+  $serverxml_path = "${srvadmin_lib_path}/openmanage/apache-tomcat/conf/server.xml"
 
   apt::source { 'omsa':
     location => 'http://linux.dell.com/repo/community/ubuntu',
@@ -54,7 +71,7 @@ class dellomsa (
   apt::pin { 'srvadmin':
     packages => 'srvadmin-*',
     priority => '1001',
-    version => '7.4.*',
+    version => "${omsa_version}.*",
   }
   ->
   package { 'srvadmin-all':

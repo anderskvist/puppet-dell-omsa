@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- MANAGED BY PUPPET -->
 <Server port="-1" shutdown="SHUTDOWN">
-  <Listener className="org.apache.catalina.core.JasperListener"/>
+  <% if @omsa_version == '7.4' %><Listener className="org.apache.catalina.core.JasperListener"/><% else %><Listener className="org.apache.catalina.startup.VersionLoggerListener" /><% end %>
   <Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener"/>
   <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"/>
   <Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener"/>
