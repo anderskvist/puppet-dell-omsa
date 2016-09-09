@@ -34,6 +34,7 @@ PUPPET = <<SCRIPT
 
   cat << EOF > /root/dellomsa.pp
 class { dellomsa:
+  omsa_version => '7.4',
   development => true,
   keystore_password => 'SomeRandomPasswordHere',
   ssl_certificate => '/etc/ssl/private/omsa.host.tld.crt',
