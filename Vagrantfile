@@ -1,10 +1,19 @@
 Vagrant.configure(2) do |config|
-  config.vm.box = "puppetlabs/ubuntu-14.04-64-nocm"
   config.ssh.forward_agent = true
 
   config.vm.network "private_network", type: "dhcp"
   config.vm.provision "puppet", type: "shell", inline: PUPPET
   config.vm.define "ubuntu-14.04" do |node|
+      config.vm.box = "puppetlabs/ubuntu-14.04-64-nocm"
+  end
+  config.vm.define "ubuntu-16.04" do |node|
+      config.vm.box = "puppetlabs/ubuntu-16.04-64-nocm"
+  end
+  config.vm.define "debian-7.8" do |node|
+    config.vm.box = "puppetlabs/debian-7.8-64-nocm"
+  end
+    config.vm.define "debian-8.2" do |node|
+    config.vm.box = "puppetlabs/debian-8.2-64-nocm"
   end
 end
 
