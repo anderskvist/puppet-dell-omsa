@@ -6,4 +6,22 @@ class dellomsa::params {
   $srvadmin_path = '/opt/dell/srvadmin'
   $keystore_path = "${srvadmin_path}/lib/openmanage/apache-tomcat/conf/keystore.db"
   $serverxml_path = "${srvadmin_path}/lib/openmanage/apache-tomcat/conf/server.xml"
+
+  case $operatingsystem {
+    'Ubuntu': {
+      case $operatingsystemrelease {
+        '14.04': {
+        }
+        '16.04': {
+          fail ("Dell OMSA doesn't have support for Ubuntu 16.04!\n")
+        }
+        default: {
+          fail ("The dellomsa module doesn't support ${operatingsystem} ${operatingsystemrelease} yet - patches are welcome :)\n")
+        }
+      }
+    }
+    default: {
+      fail ("The dellomsa module doesn't support ${operatingsystem} yet - patches are welcome :)\n")
+    }
+  }
 }
