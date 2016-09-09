@@ -20,6 +20,11 @@ class dellomsa::params {
         }
       }
     }
+    'Debian': {
+      # Debian 7 seems to have problem with puppetlabs-apt module
+      # Debian 8 only suports OMSA 8.3 which we don't have support for yet.
+      fail ("The dellomsa module doesn't support ${operatingsystem} ${operatingsystemrelease} yet - patches are welcome :)\n")
+    }
     default: {
       fail ("The dellomsa module doesn't support ${operatingsystem} yet - patches are welcome :)\n")
     }
