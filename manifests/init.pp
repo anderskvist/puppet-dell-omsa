@@ -5,6 +5,9 @@
 #
 # === Parameters
 #
+# [*omsa_version*]
+#   Which version of OMSA to install (major.minor)
+#
 # [*keystore_password*]
 #   Just a random generated password - you will never need to type it
 #
